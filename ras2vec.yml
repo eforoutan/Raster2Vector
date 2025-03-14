@@ -1,0 +1,5 @@
+input_raster:
+  class: File
+  path: raster/GSW_output.tif
+
+rounding_precision: "1"

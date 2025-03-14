@@ -1,0 +1,17 @@
+python .\ras2vec.py "C:/CWL/spatial/Raster2Vector/raster/windSpeed_OK_2022.tif" 0
+
+
+docker build -t eforoutan/ras2vec:latest .
+
+
+docker run --rm -v C:/CWL/spatial/calc_zonal_stats/data:/data eforoutan/calc_zonal_stats:latest /data/OK_Counties.shp /data/DEM_Oklahoma.tif mean
+
+
+
+docker login
+docker push eforoutan/ras2vec
+
+
+wsl -d Ubuntu
+
+cwltool ras2vec.cwl ras2vec.yml
