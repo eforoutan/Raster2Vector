@@ -75,19 +75,21 @@ def save_outputs(gdf, geojson_output, csv_output):
 if __name__ == "__main__":
     import sys
 
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 5:
         print("Usage: python script.py <input_raster> <rounding_precision>")
         sys.exit(1)
 
     input_raster = sys.argv[1]
     rounding_precision = int(sys.argv[2])
+    geojson_file_name = sys.argv[3]
+    csv_file_name = sys.argv[4]
 
     # Convert raster to vector
     gdf = raster_to_vector(input_raster, rounding_precision)
 
     if gdf is not None:
-        geojson_output = "vectorized_output.geojson"
-        csv_output = "vectorized_output.csv"
+        geojson_output = geojson_file_name
+        csv_output = csv_file_name
         
         # Save results to GeoJSON and CSV
         save_outputs(gdf, geojson_output, csv_output)

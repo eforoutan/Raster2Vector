@@ -1,10 +1,7 @@
 python .\ras2vec.py "C:/CWL/spatial/Raster2Vector/raster/windSpeed_OK_2022.tif" 0
-
+python .\ras2vec.py "C:/CWL/spatial/Raster2Vector/raster/gpw_v4_cnty_sw_ok_5km_NN.tif" 2 "pop.geojson" "pop.csv"
 
 docker build -t eforoutan/ras2vec:latest .
-
-
-docker run --rm -v C:/CWL/spatial/calc_zonal_stats/data:/data eforoutan/calc_zonal_stats:latest /data/OK_Counties.shp /data/DEM_Oklahoma.tif mean
 
 
 
